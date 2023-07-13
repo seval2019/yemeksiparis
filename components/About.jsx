@@ -21,6 +21,7 @@ const About = () => {
               need to be sure there isn`t anything embarrassing hidden in the
               middle of text. All
             </p>
+            
             <button className="btn-primary rounded-full">Read More</button>
           </div>
         </div>
