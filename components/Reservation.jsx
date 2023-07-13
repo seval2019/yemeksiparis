@@ -1,9 +1,13 @@
 import React from "react";
 import Input from "./form/Input";
-import Title from "../components/ui/Title";
-import { Formik, useFormik } from 'formik';
+import Title from "./ui/Title";
+import { useFormik } from "formik";
 
 const Reservation = () => {
+  const onSubmit = async (values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+  };
 
   const { values, handleSubmit, handleChange } = useFormik({
     initialValues: {
@@ -12,8 +16,8 @@ const Reservation = () => {
       email: "",
       persons: "",
       date: "",
-    }
-
+    },
+    onSubmit,
   });
 
 
@@ -28,7 +32,7 @@ const Reservation = () => {
     {
       id: 2,
       name: "phoneNumber",
-      type: "number",
+      type: "text",
       placeholder: "Your Phone Number",
       value: values.phoneNumber,
     },
@@ -36,14 +40,14 @@ const Reservation = () => {
       id: 3,
       name: "email",
       type: "email",
-      placeholder: "Your Email",
+      placeholder: "Your Email Address",
       value: values.email,
     },
     {
       id: 4,
       name: "persons",
       type: "number",
-      placeholder: "How Many Persons",
+      placeholder: "How Many Persons?",
       value: values.persons,
     },
     {
@@ -55,7 +59,7 @@ const Reservation = () => {
     },
   ]
 
-  console.log(Formik.values)
+
   return (
     <div>
       <div className="container mx-auto py-12">
