@@ -1,7 +1,7 @@
-import React from "react";
 import Input from "./form/Input";
 import Title from "./ui/Title";
 import { useFormik } from "formik";
+import { reservationSchema } from "../schema/reservation";
 
 const Reservation = () => {
   const onSubmit = async (values, actions) => {
@@ -9,7 +9,8 @@ const Reservation = () => {
     actions.resetForm();
   };
 
-  const { values, handleSubmit, handleChange } = useFormik({
+  const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
+  useFormik({
     initialValues: {
       fullName: "",
       phoneNumber: "",
@@ -18,6 +19,7 @@ const Reservation = () => {
       date: "",
     },
     onSubmit,
+    validationSchema: reservationSchema,
   });
 
 
@@ -28,6 +30,8 @@ const Reservation = () => {
       type: "text",
       placeholder: "Your Full Name",
       value: values.fullName,
+      errorMessage: errors.fullName,
+      touched: touched.fullName,
     },
     {
       id: 2,
@@ -35,6 +39,8 @@ const Reservation = () => {
       type: "text",
       placeholder: "Your Phone Number",
       value: values.phoneNumber,
+      errorMessage: errors.phoneNumber,
+      touched: touched.phoneNumber,
     },
     {
       id: 3,
@@ -42,6 +48,8 @@ const Reservation = () => {
       type: "email",
       placeholder: "Your Email Address",
       value: values.email,
+      errorMessage: errors.email,
+      touched: touched.email,
     },
     {
       id: 4,
@@ -49,6 +57,8 @@ const Reservation = () => {
       type: "number",
       placeholder: "How Many Persons?",
       value: values.persons,
+      errorMessage: errors.persons,
+      touched: touched.persons,
     },
     {
       id: 5,
@@ -56,6 +66,8 @@ const Reservation = () => {
       type: "datetime-local",
       placeholder: "Date Time",
       value: values.date,
+      errorMessage: errors.date,
+      touched: touched.date,
     },
   ]
 
@@ -68,7 +80,12 @@ const Reservation = () => {
           <form className="lg:flex-1 w-full" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-y-3">
               {inputs.map((input) => (
-                <Input key={input.id} {...input} onChange={handleChange} />
+                <Input
+                key={input.id}
+                {...input}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               ))}
             </div>
             <button className="btn-primary mt-4 rounded-full" type="submit">
@@ -87,7 +104,6 @@ const Reservation = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
