@@ -1,10 +1,10 @@
-
 import { useState } from 'react';
 import Logo from "../ui/Logo";
 import { FaUserAlt, FaShoppingCart, FaSearch } from "react-icons/fa";
 import Search from '../ui/Search';
 import { GiHamburgerMenu, GiCancel } from 'react-icons/gi';
 import { useRouter } from "next/router";
+import Link from 'next/link';
 
 
 
@@ -28,16 +28,16 @@ const Header = () => {
                     >
                         <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
                             <li className="nav-item active px-[0.3125rem] py-[1.25rem] cursor-pointer hover:text-primary">
-                                <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
+                                <Link className="nav-link" href="/" >Home <span className="sr-only">(current)</span></Link>
                             </li>
                             <li className="nav-item px-[0.3125rem] py-[1.25rem] cursor-pointer hover:text-primary">
-                                <a className="nav-link" href="menu.html">Menu</a>
+                                <Link className="nav-link" href="/menu">Menu</Link>
                             </li>
                             <li className="nav-item px-[0.3125rem] py-[1.25rem] cursor-pointer hover:text-primary">
-                                <a className="nav-link" href="about.html">About</a>
+                                <Link className="nav-link" href="/about" >About</Link>
                             </li>
                             <li className="nav-item px-[0.3125rem] py-[1.25rem] cursor-pointer hover:text-primary">
-                                <a className="nav-link" href="book.html">Book Table</a>
+                                <Link className="nav-link" href="/reservation">Book Table</Link>
                             </li>
                         </ul>
                         {isMenuModal && (
@@ -45,23 +45,20 @@ const Header = () => {
                                 className="absolute  top-4 right-4 z-50"
                                 onClick={() => setIsMenuModal(false)}
                             >
-                                <GiCancel size={25} className=" transition-all" />
+                                <GiCancel size={25} className=" transition-all cursor-pointer" />
                             </button>
                         )}
                     </nav>
 
                     <div className='flex gap-x-4 items-center'>
+                        <Link href="/auth/login">
+                            <FaUserAlt className="hover:text-primary transition-all cursor-pointer" />
+                        </Link>
                         <a href="#" className='hover:text-primary transition-all'>
-                            <FaUserAlt />
+                            <FaShoppingCart className="hover:text-primary transition-all cursor-pointer" />
                         </a>
-                        <a href="#" className='hover:text-primary transition-all'>
-                            <FaShoppingCart />
-                        </a>
-                        <button onClick={() => setIsSearchModal(true)}>
-                            <FaSearch
-                                className="hover:text-primary transition-all cursor-pointer"
-                                size={18}
-                            />
+                        <button onClick={() => setIsSearchModal(true)} className='transition-all'>
+                            <FaSearch className="hover:text-primary transition-all cursor-pointer" />
                         </button>
                         <a href="#" className="btn-primary rounded-full sm:inline-block hidden">
                             <button className="btn-primary">Order Online</button>

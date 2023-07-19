@@ -1,15 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Link from "next/link";
 
 const Logo = () => {
     return (
-        <div>
-            <a className="navbar-brand" href="index.html">
-                <span className='text-[2rem] font-dancing font-bold text-white'>
-                    Feane
-                </span>
-            </a>
-        </div>
-    )
-}
-
+        <Link href="/">
+          <span className="text-[2rem] font-dancing font-bold cursor-pointer">
+            Feane
+          </span>
+        </Link>
+      );
+    };
 export default Logo
