@@ -78,7 +78,7 @@ const Reservation = () => {
         <Title addClass="text-[40px] mb-10">Book A Table</Title>
         <div className="flex justify-between flex-wrap-reverse gap-10">
           <form className="lg:flex-1 w-full" onSubmit={handleSubmit}>
-            <div className="flex flex-col gap-y-3">
+            <div className="flex flex-col gap-y-4">
               {inputs.map((input) => (
                 <Input
                 key={input.id}
@@ -88,7 +88,7 @@ const Reservation = () => {
               />
               ))}
             </div>
-            <button className="btn-primary mt-4 rounded-full" type="submit">
+            <button className="btn-primary mt-7 rounded-full" type="submit">
               BOOK NOW
             </button>
           </form>
