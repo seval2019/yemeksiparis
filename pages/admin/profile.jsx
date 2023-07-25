@@ -4,6 +4,7 @@ import { useState } from "react";
 import Account from "../../components/profile/Account";
 import Password from "../../components/profile/Password";
 import Order from "../../components/profile/Order";
+import Products from "@/components/admin/Products";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -12,37 +13,40 @@ const Profile = () => {
       <div className='lg:w-80 w-100 flex-shring-0'>
         <div className='relative flex flex-col items-center px-10 py-5 border border-b-0'>
           <Image
-            src="/images/client1.jpg"
+            src="/images/admin.png"
             alt=""
             width={100}
             height={100}
             className='rounded-full'
             objectFit='cover'
           />
-          <b className="text-2xl mt-1">Jane Austen</b>
+          <b className="text-2xl mt-1">Admin</b>
         </div>
         <ul className='text-center font-semibold'>
           <li className='flex border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ' onClick={() => setTabs(0)}>
-            <i className="fa fa-home pr-2"></i>
-            <button className="ml-1 ">Account</button>
+            <i className="fa fa-sign-out p-1"></i>
+            <button className="ml-1 ">Products</button>
           </li>
           <li className='flex border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ' onClick={() => setTabs(1)}>
-            <i className="fa fa-key pr-2"></i>
-            <button className="ml-1 ">Password</button>
-          </li>
-          <li className='flex border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ' onClick={() => setTabs(2)}>
-            <i className="fa fa-motorcycle pr-2"></i>
+            <i class="fa fa-sort p-1"></i>
             <button className="ml-1 ">Orders</button>
           </li>
+          <li className='flex border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ' onClick={() => setTabs(2)}>
+            <i className="fa fa-slack p-1"></i>
+            <button className="ml-1 ">Categories</button>
+          </li>
           <li className='flex border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ' onClick={() => setTabs(3)}>
-            <i className="fa fa-sign-out pr-2"></i>
+          <i class="fa fa-tag p-1"></i>
+            <button className="ml-1 ">Footers</button>
+          </li>
+          <li className='flex border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ' onClick={() => setTabs(4)}>
+            <i className="fa fa-sign-out p-2"></i>
             <button className="ml-1 ">Exit</button>
           </li>
         </ul>
       </div>
-      {tabs === 0 && (<Account />)}
-      {tabs == 1 && (<Password />)}
-      {tabs == 2 && (<Order />)}
+      {tabs === 0 && (<Products />)}
+      {tabs == 1 && (<Order />)}
     </div>
   );
 };
