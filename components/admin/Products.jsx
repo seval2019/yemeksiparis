@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from "next/image";
 import Title from "../../components/ui/Title";
 
 const Products = () => {
@@ -10,19 +11,16 @@ const Products = () => {
                     <thead className="text-xs text-gray-400 uppercase bg-gray-700">
                         <tr>
                             <th scope="col" className="py-3 px-6">
-                                PRODUCT ID
+                                IMAGE
                             </th>
                             <th scope="col" className="py-3 px-6">
-                                CUSTOMER
+                                ID
                             </th>
                             <th scope="col" className="py-3 px-6">
-                                TOTAL
+                                TITLE
                             </th>
                             <th scope="col" className="py-3 px-6">
-                                PAYMENT
-                            </th>
-                            <th scope="col" className="py-3 px-6">
-                                STATUS
+                                PRICE
                             </th>
                             <th scope="col" className="py-3 px-6">
                                 ACTION
@@ -31,24 +29,20 @@ const Products = () => {
                     </thead>
                     <tbody>
                         <tr className="transition-all bg-secondary border-gray-700 hover:bg-primary ">
-                            <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white gap-x-1 ">
-                                63107...
+                            <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
+                                <Image src="/images/f1.png" alt="" width={50} height={50} />
                             </td>
                             <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                                Emin Başbayan
+                                63049e92...
                             </td>
                             <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                                $12
-                            </td>
-
-                            <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                                Cash
+                                Good Pizza
                             </td>
                             <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                                preparing
+                                $ 10
                             </td>
                             <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white">
-                                <button className="btn-primary !bg-success rounded-full">Next Stage</button>
+                                <button className="btn-primary !bg-danger rounded-md">Delete</button>
                             </td>
                         </tr>
                     </tbody>

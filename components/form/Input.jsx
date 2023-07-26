@@ -3,7 +3,6 @@ const Input = (props) => {
   const { type, errorMessage, touched, placeholder, ...inputProps } = props;
   console.log(errorMessage);
   return (
-    <div>
       <div className="w-full">
         <label className="relative block cursor-text w-full">
           <input
@@ -24,7 +23,6 @@ const Input = (props) => {
         </label>
         {touched && <span className="text-xs text-danger">{errorMessage}</span>}
       </div>
-    </div>
   )
 }
 
